@@ -1,0 +1,21 @@
+:root {
+  --ball-size: 50px;
+  --ball-color: red;
+}
+
+#ball {
+  width: var(--ball-size);
+  height: var(--ball-size);
+  border-radius: 100%;
+  background-color: var(--ball-color);
+  position: absolute;
+  bottom: 0;
+  left: 500px;
+}
+
+button {
+  position: absolute;
+  top: 10px;
+  left: 50vw;
+  transform: translateX(-50%);
+}
