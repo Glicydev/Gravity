@@ -6,11 +6,11 @@
  */
 
 const ball = document.getElementById("ball");
-const interval = 1;
-const gravity = 0.05;
-const friction = 0.004;
+const interval = 0.2;
+const gravity = 0.03;
+const friction = 0.001;
 const yBounceDamping = 0.85;
-const xChange = 0.999;
+const xChange = 0.9;
 
 let fall;
 
