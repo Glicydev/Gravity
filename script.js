@@ -22,8 +22,11 @@ function getMaxes() {
   }
 }
 
-async function simulate() {
+function isBetween(value, min, max) {
+  return value >= min && value <= max;
+}
 
+async function simulate() {
   if (!ball) {
     console.error("Ball element not found.");
     return;
@@ -41,10 +44,6 @@ async function simulate() {
 
   let yVelocity = 10;
   let xVelocity = 14.5;
-
-  function isBetween(value, min, max) {
-    return value >= min && value <= max;
-  }
 
   // Change on resize
   window.addEventListener("resize", () => ({ maxX, maxY } = getMaxes()));
