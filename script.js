@@ -58,7 +58,6 @@ async function simulate() {
         clearInterval(fall);
       }
       else if (!isBetween(yVelocity, -0.3, 0.3)) {
-        console.log(yVelocity, isBetween(yVelocity, -0.3, 0.3))
         xVelocity *= xChange;
       }
 
