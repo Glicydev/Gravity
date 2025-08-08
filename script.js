@@ -8,9 +8,9 @@
 const ball = document.getElementById("ball");
 const interval = 0.2;
 const gravity = 0.03;
-const friction = 0.001;
+const friction = 0.002;
 const yBounceDamping = 0.85;
-const xChange = 0.9;
+const xChange = 0.95;
 
 let fall;
 
@@ -27,6 +27,10 @@ async function simulate() {
 
   let yVelocity = 10;
   let xVelocity = 4.5;
+
+  function isBetween(value, min, max) {
+    return value >= min && value <= max;
+  }
 
   fall = setInterval(() => {
     // Y changes
@@ -52,6 +56,9 @@ async function simulate() {
     if (position.y === 0 || position.y >= maxY) {
       if (yVelocity === 0 && xVelocity === 0) {
         clearInterval(fall);
+      }
+      else if (yVelocity !== 0) {
+        xVelocity *= xChange;
       }
 
       yVelocity = -yVelocity * yBounceDamping - 0.5;
