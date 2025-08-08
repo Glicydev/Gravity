@@ -15,17 +15,24 @@ const xChange = 0.9; // newton/boucne
 
 let fall;
 
+function getMaxes() {
+  return {
+    maxX: window.innerWidth - ball.clientWidth,
+    maxY: window.innerHeight - ball.clientHeight
+  }
+}
+
 async function simulate() {
-  
+
   if (!ball) {
     console.error("Ball element not found.");
     return;
   }
 
   clearInterval(fall);
-  // Bounding
-  const maxX = window.innerWidth - ball.clientWidth;
-  const maxY = window.innerHeight - ball.clientHeight;
+
+  // Bounding and initial values
+  let { maxX, maxY } = getMaxes();
 
   let position = {
     x: 0,
@@ -39,6 +46,10 @@ async function simulate() {
     return value >= min && value <= max;
   }
 
+  // Change on resize
+  window.addEventListener("resize", () => ({ maxX, maxY } = getMaxes()));
+
+  // ---> FALL LOGIC <---
   fall = setInterval(() => {
     // Y changes
     position.y += yVelocity;
