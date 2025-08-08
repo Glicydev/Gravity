@@ -27,11 +27,14 @@ function isBetween(value, min, max) {
 }
 
 async function simulate() {
+
+  // Error handling
   if (!ball) {
     console.error("Ball element not found.");
     return;
   }
 
+  // Clean
   clearInterval(fall);
 
   // Bounding and initial values
@@ -42,7 +45,7 @@ async function simulate() {
     y: 0,
   };
 
-  let yVelocity = 10;
+  let yVelocity = 15;
   let xVelocity = 14.5;
 
   // Change on resize
