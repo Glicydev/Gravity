@@ -1,6 +1,12 @@
 :root {
+  --bg-color: #010101;
   --ball-size: 50px;
   --ball-color: red;
+}
+
+body {
+  background-color: var(--bg-color);
+  margin: 0;
 }
 
 #ball {
