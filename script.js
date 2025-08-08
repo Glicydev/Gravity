@@ -8,7 +8,7 @@
 const ball = document.getElementById("ball");
 
 const interval = 1; // ms
-const gravity = 0.03; // newton/frame
+const gravity = 0.06; // newton/frame
 const friction = 0.002; // newton/frame
 const yBounceDamping = 0.85; // newton/bounce
 const xChange = 0.9; // newton/boucne
@@ -75,7 +75,7 @@ async function simulate() {
       if (yVelocity === 0 && xVelocity === 0) {
         clearInterval(fall);
       }
-      else if (!isBetween(yVelocity, -0.3, 0.3)) {
+      else if (!isBetween(yVelocity, -0.5, 0.5)) {
         xVelocity *= xChange;
       }
 
