@@ -10,7 +10,7 @@ const interval = 0.2;
 const gravity = 0.03;
 const friction = 0.002;
 const yBounceDamping = 0.85;
-const xChange = 0.95;
+const xChange = 0.97;
 
 let fall;
 
@@ -26,7 +26,7 @@ async function simulate() {
   };
 
   let yVelocity = 10;
-  let xVelocity = 4.5;
+  let xVelocity = 14.5;
 
   function isBetween(value, min, max) {
     return value >= min && value <= max;
@@ -50,14 +50,15 @@ async function simulate() {
 
     // Change position
     if (position.x === 0 || position.x >= maxX) {
-      xVelocity = -xVelocity;
+      xVelocity = -xVelocity * yBounceDamping;
     }
 
     if (position.y === 0 || position.y >= maxY) {
       if (yVelocity === 0 && xVelocity === 0) {
         clearInterval(fall);
       }
-      else if (yVelocity !== 0) {
+      else if (!isBetween(yVelocity, -0.3, 0.3)) {
+        console.log(yVelocity, isBetween(yVelocity, -0.3, 0.3))
         xVelocity *= xChange;
       }
 
