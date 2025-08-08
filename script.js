@@ -6,15 +6,22 @@
  */
 
 const ball = document.getElementById("ball");
-const interval = 0.2;
-const gravity = 0.03;
-const friction = 0.002;
-const yBounceDamping = 0.85;
-const xChange = 0.97;
+
+const interval = 1; // ms
+const gravity = 0.03; // newton/frame
+const friction = 0.002; // newton/frame
+const yBounceDamping = 0.85; // newton/bounce
+const xChange = 0.9; // newton/boucne
 
 let fall;
 
 async function simulate() {
+  
+  if (!ball) {
+    console.error("Ball element not found.");
+    return;
+  }
+
   clearInterval(fall);
   // Bounding
   const maxX = window.innerWidth - ball.clientWidth;
@@ -50,7 +57,7 @@ async function simulate() {
 
     // Change position
     if (position.x === 0 || position.x >= maxX) {
-      xVelocity = -xVelocity * yBounceDamping;
+      xVelocity = -xVelocity * xChange;
     }
 
     if (position.y === 0 || position.y >= maxY) {
