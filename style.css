@@ -1,5 +1,5 @@
 :root {
-  --bg-color: #010101;
+  --bg-color: black;
   --ball-size: 50px;
   --ball-color: red;
 }
@@ -17,6 +17,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 500px;
+  filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
 }
 
 button {
